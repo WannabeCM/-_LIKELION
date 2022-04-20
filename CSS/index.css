@@ -1,4 +1,5 @@
 @charset "utf-8";
+/* css 파일을 읽을때 한글을 인식해야하므로 필요하다 */
 
 /* 유틸리티 */
 .ir {
@@ -66,7 +67,8 @@ body {
   border-radius: 10px;
   box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.5); /* 세번째 값은 블러 처리만 */
 }
-.vending-machine .list-item li.on:before {
+/* befor가상요소를 주는 이유는 버튼의 레이아웃에 영향을 주지 않기 위해 */
+.vending-machine .list-item li:active::before {
   display: block;
   position: absolute;
   content: "";
@@ -86,11 +88,22 @@ body {
   height: 100%;
   top: 0;
   left: 0;
-  z-index: 1;
+  z-index: 10;
   border-radius: 10px;
   background: no-repeat center/60px 46px url(../images/Sold-out.png)
     rgba(0, 0, 0, 0.8);
 }
+/* 웹 접근성_품절 */
+.vending-machine .list-item li.sold-out::after {
+  content: "품절";
+  overflow: hidden;
+  position: absolute;
+  text-indent: -9999px;
+  line-height: 0;
+  font-size: 1px;
+  color: transparent;
+}
+
 .vending-machine .list-item li.sold-out {
   pointer-events: none;
 }
@@ -106,17 +119,17 @@ body {
 }
 .vending-machine .list-item .img-item {
   width: 36px;
-  height: 65px;
   margin: 0 auto;
 }
 .vending-machine .tit-item {
   display: block;
   font-size: 9px;
-  margin: 7px 0;
+  margin: 6px 0 7px;
 }
 .vending-machine .txt-price {
+  display: inline-block;
   font-size: 12px;
-  padding: 2px 12px;
+  padding: 5px 12px;
   background-color: #6327fe;
   border-radius: 50px;
   color: #fff;
@@ -142,6 +155,7 @@ body {
 .cont-put .btn-put,
 .cont-get .btn-get {
   width: 30%;
+  /* font-weight: 700; */
   font-size: 13px;
   border-radius: 5px;
   box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.5); /* 세번째 값은 블러 처리만 */
@@ -247,6 +261,25 @@ body {
   font-size: 14px;
   font-weight: 700;
 }
+
+/* scroll 디자인 */
+::-webkit-scrollbar {
+  width: 12px;
+}
+::-webkit-scrollbar-thumb {
+  background-color: #fff;
+  background-clip: padding-box;
+  border-radius: 15px;
+  border-width: 4px;
+  border-color: transparent;
+}
+::-webkit-scrollbar-track {
+  background-color: transparent;
+  box-shadow: transparent 0 0 0 inset;
+  border: 0;
+}
+/* https://codingbroker.tistory.com/66 */
+
 .cont-myitems .list-item-staged {
   overflow-y: scroll;
   height: 364px;
