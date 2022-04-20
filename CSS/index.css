@@ -262,24 +262,6 @@ body {
   font-weight: 700;
 }
 
-/* scroll 디자인 */
-::-webkit-scrollbar {
-  width: 12px;
-}
-::-webkit-scrollbar-thumb {
-  background-color: #fff;
-  background-clip: padding-box;
-  border-radius: 15px;
-  border-width: 4px;
-  border-color: transparent;
-}
-::-webkit-scrollbar-track {
-  background-color: transparent;
-  box-shadow: transparent 0 0 0 inset;
-  border: 0;
-}
-/* https://codingbroker.tistory.com/66 */
-
 .cont-myitems .list-item-staged {
   overflow-y: scroll;
   height: 364px;
@@ -315,3 +297,21 @@ body {
     padding: 31px 27px 32px;
   }
 }
+
+/* scroll 디자인 */
+::-webkit-scrollbar {
+  width: 12px;
+}
+::-webkit-scrollbar-thumb {
+  background-color: #fff;
+  background-clip: padding-box;
+  border-radius: 15px;
+  border-width: 4px;
+  border-color: transparent;
+}
+::-webkit-scrollbar-track {
+  background-color: transparent;
+  box-shadow: transparent 0 0 0 inset;
+  border: 0;
+}
+/* https://codingbroker.tistory.com/66 */
